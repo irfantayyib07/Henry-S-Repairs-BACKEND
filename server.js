@@ -1,18 +1,26 @@
 const express = require("express");
 const app = express();
-const path = require("path")
+const path = require("path"); // (built-in module)
 const PORT = process.env.PORT || 3500; // take port from the hosting environment
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
+const { logger } = require("./middlewares/logger");
+const errorHandler = require("./middlewares/errorHandler");
 
-app.use("/", express.static(path.join(__dirname, "/public")));
+app.use(logger) // custom middleware
+app.use(cors(corsOptions))
+app.use(express.json()) // ability to process json
+app.use(cookieParser()) // third-party middleware
+
+app.use("/", express.static(path.join(__dirname, "/public"))) // "/" is optional in "/public" (this line tells the server where to take static files from, like css, express.static is a built-in middleware)
+// ALTERNATIVELY
+// app.use(express.static("/public")); // the path is relative to server.js
 
 app.use("/", require("./routes/root"))
 
-app.listen(PORT, () => {
- console.log("server running on", PORT)
-});
-
-app.all("*", (req, res) => {
- res.status(404);
+app.all("*", (req, res) => { // catch all
+ res.status(404)
 
  if (req.accepts("html")) {
   res.sendFile(path.join(__dirname, "views", "404.html"))
@@ -22,3 +30,9 @@ app.all("*", (req, res) => {
   res.type("txt").send("404 Not Found");
  }
 })
+
+app.use(errorHandler) // custom middleware
+
+app.listen(PORT, () => {
+ console.log("server running on", PORT)
+});
