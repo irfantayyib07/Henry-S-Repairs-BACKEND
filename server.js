@@ -18,12 +18,13 @@ app.use(cors(corsOptions))
 app.use(express.json()) // ability to process json
 app.use(cookieParser()) // third-party middleware
 
+// ROUTING
+
 app.use("/", express.static(path.join(__dirname, "/public"))) // "/" is optional in "/public" (this line tells the server where to take static files from, like css, express.static is a built-in middleware)
-// ALTERNATIVELY
 // app.use(express.static("/public")); // the path is relative to server.js
 
 app.use("/", require("./routes/root"))
-
+app.use("/users", require("./routes/userRoutes"))
 app.all("*", (req, res) => { // catch all
  res.status(404)
 
