@@ -39,6 +39,7 @@ app.all("*", (req, res) => { // catch all
 app.use(errorHandler) // custom middleware
 
 mongoose.connection.once("open", () => {
+ console.log("Connected to MongoDB")
  app.listen(PORT, () => {console.log("server running on", PORT)})
 })
 
