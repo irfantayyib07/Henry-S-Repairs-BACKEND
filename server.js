@@ -19,7 +19,7 @@ app.use(logger)
 
 app.use(cors(corsOptions))
 
-app.use(express.json())
+app.use(express.json()) // app.use middleware is available to all the routes
 
 app.use(cookieParser())
 
