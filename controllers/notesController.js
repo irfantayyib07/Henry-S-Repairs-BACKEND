@@ -43,7 +43,6 @@ const createNewNote = asyncHandler(async (req, res) => {
  }
 
  // Create and store the new user 
- console.log({ user, title, text })
  const note = await Note.create({ user, title, text }) // passing in an object
 
  if (note) { // Created 
