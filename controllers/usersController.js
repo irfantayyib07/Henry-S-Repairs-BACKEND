@@ -35,7 +35,6 @@ const createNewUser = asyncHandler(async (req, res) => {
  const hashedPassword = await bcrypt.hash(password, 10)
 
  const newUserInfo = { username, password: hashedPassword, roles }
-
  const newUser = await User.create(newUserInfo)
  if (newUser) {
   res.status(201).json({ message: `New user ${username} created` })
