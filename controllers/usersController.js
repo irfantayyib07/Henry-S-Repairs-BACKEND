@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 // @route GET /users
 // @access Private
 
-const getAllUsers = asyncHandler(async (req, res) => {
+const getAllUsers = asyncHandler(async (req, res) => { // async handler replaces try catch blocks
  const users = await User.find().select("-password").lean()
 
  if (!users?.length) {
