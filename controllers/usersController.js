@@ -21,7 +21,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @desc Create new user
 // @route POST /users
 // @access Private
-const createNewUser = asyncHandler(async (req, res) => {
+const createNewUser = asyncHandler(async (req, res) => { // any unexpected error will be passed to errorHandler middleware
  const { username, password, roles } = req.body
 
  // Confirm data
