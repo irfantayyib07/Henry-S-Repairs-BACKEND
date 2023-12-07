@@ -40,7 +40,7 @@ app.use(errorHandler) // custom middleware
 
 mongoose.connection.once("open", () => {
  console.log("Connected to MongoDB")
- app.listen(PORT, () => {console.log("server running on", PORT)})
+ app.listen(PORT, () => { console.log("server running on", PORT) })
 })
 
 mongoose.connection.on("error", (err) => {
