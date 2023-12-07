@@ -4,12 +4,12 @@ const notesController = require("../controllers/notesController")
 
 router.route("/") // "/users" before the "/" is understood
 
-.get(notesController.getAllNotes)
+ .get(notesController.getAllNotes)
 
-.post(notesController.createNewNote)
+ .post(notesController.createNewNote)
 
-.patch(notesController.updateNote)
+ .patch(notesController.updateNote)
 
-.delete(notesController.deleteNote)
+ .delete(notesController.deleteNote)
 
 module.exports = router;

@@ -4,12 +4,12 @@ const usersController = require("../controllers/usersController")
 
 router.route("/") // "/users" before the "/" is understood
 
-.get(usersController.getAllUsers)
+ .get(usersController.getAllUsers)
 
-.post(usersController.createNewUser)
+ .post(usersController.createNewUser)
 
-.patch(usersController.updateUser)
+ .patch(usersController.updateUser)
 
-.delete(usersController.deleteUser)
+ .delete(usersController.deleteUser)
 
 module.exports = router;
