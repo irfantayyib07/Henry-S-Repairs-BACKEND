@@ -1,6 +1,6 @@
 const { format } = require('date-fns')
 const { v4: uuid } = require('uuid')
-const fs = require('fs') // file system (built-in module)
+const fs = require('fs')
 const fsPromises = require('fs').promises
 const path = require('path')
 
@@ -20,8 +20,6 @@ const logEvents = async (message, logFileName) => {
   console.log(err)
  }
 }
-
-// TODO:
 
 const logger = (req, res, next) => {
  logEvents(`${req.method}\t${req.url}\t${req.headers.origin}`, 'reqLog.log')
