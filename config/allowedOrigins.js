@@ -1,7 +1,8 @@
 const allowedOrigins = [
- 'http://localhost:3000',
- 'https://www.dandrepairshop.com',
- 'https://dandrepairshop.com'
+ "https://www.henrysrepairshop.com",
+ "https://www.henrysrepairshop.firebaseapp.com",
+ "https://www.henrysrepairshop.web.app.",
+ "https://www.henrysrepairshop.vercel.app.",
 ]
 
 module.exports = allowedOrigins
