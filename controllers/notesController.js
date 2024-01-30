@@ -10,7 +10,7 @@ const getAllNotes = async (req, res) => {
 
  // If no notes 
  if (!notes?.length) {
-  return res.status(200).json({ message: 'No notes found, start by adding new notes.' })
+  return res.status(400).json({ message: 'No notes found, start by adding new notes.' })
  }
 
  // Add username to each note before sending the response 
